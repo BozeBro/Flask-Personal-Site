@@ -1,0 +1,18 @@
+{% extends 'layout.html' %}
+{% block main %}
+{% for post in posts %}
+<div class="post-preview">
+    <a href="{{ post.href }}">
+        <h2 class="post-title">
+            {{ post.heading }}
+        </h2>
+        <h3 class="post-subtitle">
+            {{ post.subheading }}
+        </h3>
+    </a>
+    <p class="post-meta">Posted by
+        <a href="{{url_for('about')}}">Benedict Ozua</a>
+    </p>
+</div>
+{% endfor %}
+{% endblock main %}
