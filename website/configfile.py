@@ -9,6 +9,5 @@ class ProductionConfig(BaseConfig):
     Debug = False
 
 class DevelopmentConfig(BaseConfig):
-    DB_SERVER = 'localhost'
     SQLALCHEMY_DATABASE_URI = 'sqlite:///site.db'
     Debug = True
