@@ -34,7 +34,7 @@ class User(UserMixin, db.Model):
 
     def is_accessible(self):
        if current_user.is_authenticated:
-           return current_user.permission == 'Admin'
+           return not current_user.permission == 'Admin'
 
 class MyModelView(ModelView):
     column_exclude_list = ('password'),
