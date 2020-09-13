@@ -46,5 +46,6 @@ class MyModelView(ModelView):
 @event.listens_for(User.password, 'set', retval=True)
 def hash_user_password(target, value, oldvalue, initiator):
     if value != oldvalue:
+        # DECODE password. Postegresql will hash it again
         return bcrypt.generate_password_hash(value).decode('UTF-8')
     return value
