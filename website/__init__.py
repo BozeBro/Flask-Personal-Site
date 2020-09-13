@@ -1,14 +1,13 @@
-import os
 from flask import Flask
 from flask_admin import Admin, AdminIndexView
 from flask_admin.contrib.sqla import ModelView
 from flask_bcrypt import Bcrypt
 from flask_login import LoginManager
 from flask_sqlalchemy import SQLAlchemy
+from .configfile import DevelopmentConfig, ProductionConfig
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///site.db'
-app.config['SECRET_KEY'] = os.environ['PERSONAL_SECRET']
+app.config.from_object(DevelopmentConfig())
 
 bcrypt = Bcrypt(app)
 db = SQLAlchemy(app)
