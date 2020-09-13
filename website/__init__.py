@@ -7,7 +7,7 @@ from flask_sqlalchemy import SQLAlchemy
 from .configfile import DevelopmentConfig, ProductionConfig
 
 app = Flask(__name__)
-app.config.from_object(DevelopmentConfig())
+app.config.from_object(ProductionConfig())
 
 bcrypt = Bcrypt(app)
 db = SQLAlchemy(app)
