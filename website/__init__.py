@@ -18,4 +18,4 @@ from .models import Title, User, MyAdminIndexView, MyModelView
 
 admin = Admin(app, index_view=MyAdminIndexView())
 #All Models are in .models
-admin.add_views(MyModelView(Title, db.session), MyModelView(User, db.session))
+admin.add_views(ModelView(Title, db.session), ModelView(User, db.session))
