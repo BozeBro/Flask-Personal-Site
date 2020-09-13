@@ -43,8 +43,8 @@ class MyModelView(ModelView):
             return current_user.permission == 'Admin'
 
 # Listens for row creation in Flask-Admin
-@event.listens_for(User.password, 'set', retval=True)
+"""@event.listens_for(User.password, 'set', retval=True)
 def hash_user_password(target, value, oldvalue, initiator):
     if value != oldvalue:
         return bcrypt.generate_password_hash(value)
-    return value
+    return value"""
