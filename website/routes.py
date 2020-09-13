@@ -62,6 +62,8 @@ def project():
         )
 @app.route('/login', methods=['GET', 'POST'])
 def login():
+    if current_user.is_authenticated:
+        return redirect(url_for('home'))
     # &$jLUM4B6Cg4WWf@
     form = LoginForm()
     if form.validate_on_submit():
