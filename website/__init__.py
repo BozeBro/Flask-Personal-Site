@@ -4,10 +4,10 @@ from flask_admin.contrib.sqla import ModelView
 from flask_bcrypt import Bcrypt
 from flask_login import LoginManager
 from flask_sqlalchemy import SQLAlchemy
-from .configfile import DevelopmentConfig, ProductionConfig
+from .configfile import DevelopmentConfig
 
 app = Flask(__name__)
-app.config.from_object(ProductionConfig())
+app.config.from_object(DevelopmentConfig())
 
 bcrypt = Bcrypt(app)
 db = SQLAlchemy(app)
