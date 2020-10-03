@@ -1,0 +1,8 @@
+1. Convert routes.py into a blueprint
+2. Fix up admin so you don't have to do certain tasks in a weird order
+    No (Make app, make models, add models)
+    Yes (Make app, make models, init_models, so you can add views right after importation)
+3. Change package structure so it is less thick than it is right now. Bloated
+    Consider making every file into a package and import from that
+4. WTF is gunicorn and NGinX?
+

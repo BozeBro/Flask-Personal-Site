@@ -1,12 +1,14 @@
-from flask_admin import AdminIndexView, expose
+from flask_admin import Admin, AdminIndexView, expose
 from flask_admin.contrib.sqla import ModelView
-from flask_login import UserMixin, current_user
+from flask_bcrypt import Bcrypt
+from flask_login import LoginManager, current_user, UserMixin
 from flask_sqlalchemy import event
-from . import db, login_manager, bcrypt
+from flask_sqlalchemy import SQLAlchemy
 
-@login_manager.user_loader
-def load_user(user_id):
-    return User.query.get(int(user_id))
+login_manager = LoginManager()
+db = SQLAlchemy()
+bcrypt = Bcrypt()
+admin = Admin()
 
 class MyAdminIndexView(AdminIndexView):
     @expose('/')
@@ -49,3 +51,7 @@ def hash_user_password(target, value, oldvalue, initiator):
         # DECODE password. Postegresql will hash it again
         return bcrypt.generate_password_hash(value).decode('UTF-8')
     return value
+
+@login_manager.user_loader
+def load_user(user_id):
+    return User.query.get(int(user_id))

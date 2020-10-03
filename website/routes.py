@@ -1,9 +1,9 @@
 from datetime import date
 from flask import render_template, url_for, redirect, request, flash
 from flask_login import login_user, current_user, logout_user
-from . import app, bcrypt
+from . import app
 from .forms import LoginForm
-from .models import Title, User
+from .models import Title, User, bcrypt
 
 github = 'https://github.com/BozeBro'
 year = date.today().strftime("%Y")
